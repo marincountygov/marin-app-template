@@ -27,6 +27,10 @@ This project was created from `marin-app-template`, template version `TEMPLATE_V
 
 `marin.yml` is a small, machine-readable file describing this project's name, owner, status, and the `marin-ui`/template versions it's built on — for humans, scripts, and AI agents to read without parsing prose. Keep it current: update `platform.marin-ui` after every `sync-consumer.sh` run, and `project.status` as the app moves through its lifecycle (prototype → active → maintenance → deprecated → archived).
 
+## Security
+
+This app ships with a starter `security.json`, `SECURITY.md`, and a `#security` section already wired up — see [`SECURITY.md`](SECURITY.md) for what to update (mainly `security.json`'s `review` and `exceptions[].owner` fields) once the app has a real owner and its first real review.
+
 ## Related resources
 
 - [marin-digital-standards](https://github.com/marincountygov/marin-digital-standards) — accessibility, content, brand, and product-design requirements.
