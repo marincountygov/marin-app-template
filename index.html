@@ -26,7 +26,10 @@
         </div>
         <div class="app-header__actions">
           <button type="button" class="app-menu-toggle secondary" id="menu-toggle" aria-expanded="false" aria-controls="app-nav">Menu</button>
-          <nav class="app-nav" id="app-nav" aria-label="Application navigation"><a href="#start" aria-current="page">Start</a><a href="#about">About</a><a href="#updates">Updates</a><a href="#security">Security</a></nav>
+          <nav class="app-nav" id="app-nav" aria-label="Application navigation">
+            <a href="#about">About</a>
+            <a href="#updates">Updates</a>
+          </nav>
         </div>
       </div>
     </header>
@@ -53,8 +56,25 @@
           <li><a href=".well-known/security.txt">security.txt</a></li>
         </ul>
       </section>
+      <section id="accessibility" class="app-card" data-tab-section="accessibility" hidden>
+        <h2>Accessibility</h2>
+        <p>Document accessibility support, known issues, and how users can report an accessibility problem.</p>
+      </section>
     </main>
-    <footer class="app-footer" role="contentinfo"><div class="app-footer__inner"><a href="https://marincountygov.github.io/marin-os/">MarinOS</a></div></footer>
+    <footer class="app-footer" role="contentinfo">
+      <div class="app-footer__inner">
+        <div class="app-footer__local">
+          <span class="app-footer__app-name">APP_NAME</span>
+          <nav class="app-footer__nav" aria-label="APP_NAME information">
+            <a href="#about">About</a>
+            <a href="#security">Security</a>
+            <a href="#accessibility">Accessibility</a>
+            <a href="#updates">Updates</a>
+          </nav>
+        </div>
+        <div class="app-footer__platform"><a href="https://marincountygov.github.io/marin-os/">MarinOS</a></div>
+      </div>
+    </footer>
     <a class="app-feedback" href="https://form.asana.com/?k=qVUT83d5DBmlDiIyi-WAyQ&amp;d=23133298259496" target="_blank" rel="noreferrer">Feedback</a>
     <script src="shared/app-shell.js"></script>
     <script src="assets/app.js"></script>
