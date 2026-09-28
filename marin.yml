@@ -10,7 +10,7 @@ project:
 
 platform:
   marin-ui: 1.18.0
-  template: 1.2.0
+  template: 1.2.1
 
 deployment:
   target: github-pages

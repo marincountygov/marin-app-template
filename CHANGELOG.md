@@ -4,6 +4,13 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Template versioning" note.
 
+## 1.2.1
+
+- Expand the standard footer into local-app navigation: plain-text app name plus **About**, **Security**, **Accessibility**, and **Updates**, with **MarinOS** on its own line.
+- Keep the informational destinations as hash-routed sections within `index.html`; add the standard `#accessibility` section alongside the existing About, Updates, and Security sections.
+- Keep **About** and **Updates** in the application header navigation and remove the default **Start** header item.
+- Add responsive footer styles in `shared/app-brand.css`.
+
 ## 1.2.0
 
 - Add security setup so new apps start compliant with the MarinOS security standard: a starter `security.json` (the `internal` profile, with `APP_OWNER` placeholders), `SECURITY.md`, a generated `.well-known/security.txt`, a `#security` section wired to the shared renderer in `marin-ui` 1.18.0, an About → Security link, and a README "Security" section. Nothing here needs `APP_NAME`-style identity fields — `marin.yml` already owns identity.
