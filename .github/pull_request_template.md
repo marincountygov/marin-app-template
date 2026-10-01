@@ -2,10 +2,11 @@
 
 Describe the change.
 
-## Marin UI and design
+## Marin App Shell and design
 
-- [ ] Uses existing marin-ui components and patterns where available.
-- [ ] No unnecessary new UI patterns introduced.
+- [ ] Uses the pinned shell components and existing design patterns.
+- [ ] Vendored shell files are unmodified and match `platform.shell`.
+- [ ] No copied shell markup or unnecessary new UI patterns introduced.
 - [ ] Keyboard interaction tested.
 - [ ] Responsive behavior tested.
 
@@ -14,6 +15,13 @@ Describe the change.
 - [ ] Content reviewed for plain language.
 - [ ] Accessibility checks completed.
 
-## Documentation
+## Validation and documentation
 
+- [ ] `bash scripts/check.sh` passes.
+- [ ] Browser testing completed, or limitations recorded.
 - [ ] App-specific documentation updated.
+
+## Security configuration
+
+- [ ] CSP/referrer meta tags match `security.json` and precede resource loading.
+- [ ] New network destinations or CSP allowances have been reviewed; no unsupported meta-delivered controls are claimed.

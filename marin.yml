@@ -9,8 +9,7 @@ project:
   status: prototype
 
 platform:
-  marin-ui: 1.18.2
-  template: 1.2.1
+  shell: 1.0.1
 
 deployment:
   target: github-pages

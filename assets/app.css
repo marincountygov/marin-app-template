@@ -1,10 +1,11 @@
 /*
-  App-specific styles only. Load order: vendor/pico.min.css -> shared/app-brand.css -> this file.
+  App-specific styles only.
+  Load order: vendor/marinos/marinos.css, then this file.
 
-  Before adding a rule here:
-    1. Does an existing marin-ui component or class already do this? Use it.
-    2. Does a marin-ui token (color, spacing, radius) cover it? Use the token.
-    3. Is this a small, genuinely app-specific addition? Add it below.
-    4. Would other Marin apps likely need this too? Propose it for marin-ui instead
-       of duplicating it here.
+  The shell bundles the shared Marin UI/Pico baseline and shell components.
+  Use the components and tokens provided by the pinned shell before adding CSS.
+  Scope new rules to the application's workflow or its own class prefix.
+  Do not override shell-owned header, banner, footer, or information-section
+  layout here. Shared fixes belong upstream in marin-app-shell (or marin-ui),
+  followed by a reviewed shell release, not an edit to vendor/marinos/.
 */

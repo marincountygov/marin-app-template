@@ -1,8 +1,19 @@
 # Changelog
 
-Tracks changes to `marin-app-template` itself — repository structure, starter shell, scaffolding, and documentation. This is separate from `BRAND_VERSION`, which tracks the vendored `marin-ui` bundle.
+Tracks changes to `marin-app-template` itself — repository structure, starter shell, scaffolding, and documentation. This is separate from `platform.shell` in `marin.yml`, which pins the vendored Marin App Shell runtime.
 
-Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Template versioning" note.
+Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
+
+## 2.0.0
+
+- Replace copied banner, header, navigation, information sections, footer, and Feedback markup with the five Marin App Shell web components. Preserve the `APP_*` starter placeholders and app-owned About/Accessibility content.
+- Vendor the unmodified Marin App Shell 1.0.1 distribution and pin `platform.shell: 1.0.1`. The shell includes the Pico/shared UI baseline and the header identity link to `./`.
+- Remove the legacy `shared/` runtime, standalone Pico stylesheet, `BRAND_VERSION`, and unused starter icon files. Keep existing font assets and security reporting/review metadata unchanged.
+- Load the shell before the app with deferred scripts. Keep `#start` as the default workflow, add a JavaScript-disabled message, and let the shell create standard navigation and status infrastructure.
+- Rewrite starter/developer/agent guidance for component-owned markup and versioned shell upgrades. Add license notices and structural, integrity, and optional browser checks.
+- Emit static CSP and referrer-policy meta tags from `security.json` before resource loading. Add explicit shell feed and data-image allowances, keep script/style/font sources local, and retain the documented header-only gaps.
+- Add an idempotent security-meta emitter, read-only consistency checks, offline regression tests, and browser CSP enforcement probes.
+- This is a breaking starter-layout change, not a required version migration for already deployed apps. Existing apps upgrade their pinned shell independently.
 
 ## 1.2.1
 

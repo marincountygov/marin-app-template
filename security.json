@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/marincountygov/marin-os/main/schemas/security.schema.json",
-  "$comment": "Starter security.json from marin-app-template, built from marin-os/schemas/profiles/internal.json — the right default for a staff-only MarinOS app (most apps in the catalog today). If this app is public-facing, authenticated, or otherwise doesn't fit 'internal', see marin-digital-standards/security/profiles.md and swap in the matching profile file instead. No app-identity fields belong here (id/name/repo/owner) — those live in marin.yml. Update review.lastReviewed/owner and securityTxt.expires when this app is actually reviewed; everything else works as-is out of the box.",
+  "$comment": "Starter security.json from marin-app-template, built from marin-os/schemas/profiles/internal.json — the right default for a staff-only MarinOS app (most apps in the catalog today). If this app is public-facing, authenticated, or otherwise doesn't fit 'internal', see marin-digital-standards/security/profiles.md and swap in the matching profile file instead. No app-identity fields belong here (id/name/repo/owner) — those live in marin.yml. Update review.lastReviewed/owner and securityTxt.expires when this app is actually reviewed; the meta-delivered controls are emitted into index.html by scripts/sync-security-meta.py. This starter adds connect-src for the shell catalog and Updates requests and permits data: images for the existing favicon/Pico icons. Review these additions for the actual app and regenerate the meta block after any policy change.",
   "schema": 1,
   "profile": "internal",
   "securityTxt": {
@@ -26,8 +26,9 @@
       "default-src": ["'self'"],
       "script-src": ["'self'"],
       "style-src": ["'self'"],
-      "img-src": ["'self'"],
+      "img-src": ["'self'", "data:"],
       "font-src": ["'self'"],
+      "connect-src": ["'self'", "https://marincountygov.github.io/marin-os/catalog.json", "https://api.github.com"],
       "object-src": ["'none'"],
       "base-uri": ["'self'"],
       "form-action": ["'self'"]
@@ -40,7 +41,10 @@
     "collectsSensitiveData": false,
     "storesPersonalInformation": false,
     "acceptsUserSubmittedContent": false,
-    "externalDataSources": []
+    "externalDataSources": [
+      "https://marincountygov.github.io/marin-os/catalog.json",
+      "https://api.github.com"
+    ]
   },
   "dependencies": {
     "lockfileRequired": false,
