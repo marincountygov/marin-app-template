@@ -6,7 +6,7 @@ project:
   type: app
   owner: APP_OWNER
   audience: staff
-  status: prototype
+  status: alpha
 
 platform:
   shell: 1.1.1
