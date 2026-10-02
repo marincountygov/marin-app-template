@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.2
+
+- Update `marin.yml`'s starter `project.status` from `prototype` to `alpha`, matching MarinOS's new app status enum (`alpha`/`beta`/`live`) — see `marin-os`'s `#status` page. `prototype` is no longer a recognized value.
+
 ## 2.0.1
 
 - Update the vendored Marin App Shell from 1.0.1 to 1.1.1 and pin `platform.shell: 1.1.1`.
