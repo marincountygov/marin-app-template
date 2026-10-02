@@ -19,7 +19,7 @@
 
 ## Marin App Shell
 
-This starter vendors **Marin App Shell 1.0.1** under `vendor/marinos/`. It is the app's single shared runtime dependency. Its stylesheet includes the Pico baseline, shared design tokens, and shell styling; do not add a separate Pico or old shared-brand stylesheet.
+This starter vendors **Marin App Shell 1.1.1** under `vendor/marinos/`. It is the app's single shared runtime dependency. Its stylesheet includes the Pico baseline, shared design tokens, and shell styling; do not add a separate Pico or old shared-brand stylesheet.
 
 The initial HTML declares five light-DOM web components:
 
@@ -50,7 +50,7 @@ The primary workflow uses `#start`. The shell generates the `#about`, `#security
 
 ```yaml
 platform:
-  shell: 1.0.1
+  shell: 1.1.1
 ```
 
 That version must match `shellVersion` in `vendor/marinos/manifest.json`. The shell manifest records its Marin UI baseline; apps do not separately synchronize Marin UI or Pico. Keep `project.status` current as the app moves through prototype, active, maintenance, deprecated, or archived states.
