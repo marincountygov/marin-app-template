@@ -4,6 +4,15 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.1
+
+- Update the vendored Marin App Shell from 1.0.1 to 1.1.1 and pin `platform.shell: 1.1.1`.
+- Synchronize the shell-managed local font and Lucide icon assets using the App Shell installer while preserving template-owned assets and application scaffolding.
+- Adopt the App Shell 1.1.1 installer behavior that updates an existing `marin.yml` `platform.shell` value as part of the validated, rollback-protected installation.
+- Update starter and developer documentation to reflect the current shell installation and upgrade workflow.
+- Keep the existing Marin App Shell component structure, starter placeholders, CSP/referrer-policy metadata, security tooling, and application-specific CSS/JavaScript unchanged.
+- This is a maintenance update to the template. Existing applications continue to upgrade their pinned Marin App Shell independently.
+
 ## 2.0.0
 
 - Replace copied banner, header, navigation, information sections, footer, and Feedback markup with the five Marin App Shell web components. Preserve the `APP_*` starter placeholders and app-owned About/Accessibility content.
