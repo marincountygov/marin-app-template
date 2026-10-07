@@ -9,7 +9,7 @@ project:
   status: alpha
 
 platform:
-  shell: 1.8.0
+  shell: 1.9.0
 
 deployment:
   target: github-pages
@@ -19,3 +19,12 @@ deployment:
 # uncomment. Until declared, the Tech page says "Not documented".
 # ai:
 #   used: false
+
+# List any outside services the deployed app uses (not the shared App Shell
+# calls), or write "services: none". Until declared, the Tech page says "Not documented".
+# services:
+#   example-api:
+#     name: Example API
+#     purpose: What it is used for
+#     runs: browser        # or build
+#     visitor-data: false  # does it receive anything about the visitor?
