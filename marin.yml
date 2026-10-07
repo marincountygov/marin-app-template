@@ -9,8 +9,13 @@ project:
   status: alpha
 
 platform:
-  shell: 1.7.0
+  shell: 1.8.0
 
 deployment:
   target: github-pages
   url: https://marincountygov.github.io/APP_REPO/
+
+# Declare whether the deployed app uses AI (not tools used to build it), then
+# uncomment. Until declared, the Tech page says "Not documented".
+# ai:
+#   used: false

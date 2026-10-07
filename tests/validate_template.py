@@ -19,7 +19,7 @@ COMPONENTS = (
 )
 LEGACY = (
     "BRAND_VERSION", "shared/app-brand.css", "shared/app-shell.js",
-    "vendor/pico.min.css", "vendor/icons",
+    "vendor/pico.min.css",
 )
 
 
@@ -109,6 +109,22 @@ def main() -> None:
         require(ROOT.resolve() in path.parents and path.is_file(), f"Missing local font: {font_path}")
     print(f"Vendored shell {version}: version and file hashes PASS")
 
+    # The shell installer owns the Lucide icons at vendor/icons/lucide/ (see the
+    # manifest's companionIcons). They must be present and unmodified.
+    icons = manifest.get("companionIcons")
+    require(isinstance(icons, dict) and bool(icons), "Shell manifest lists no companion icons")
+    require(all(path.startswith("vendor/icons/lucide/") for path in icons),
+            "Companion icons must live in vendor/icons/lucide/")
+    for relative, expected in icons.items():
+        path = (ROOT / relative).resolve()
+        require(ROOT.resolve() in path.parents and path.is_file(), f"Missing shell icon: {relative}")
+        content = path.read_bytes()
+        require(len(content) == expected["bytes"] and hashlib.sha256(content).hexdigest() == expected["sha256"],
+                f"Shell icon differs from the manifest: {relative}; reinstall an unmodified release")
+    on_disk = {p.relative_to(ROOT).as_posix() for p in (ROOT / "vendor/icons").rglob("*") if p.is_file()}
+    require(on_disk == set(icons), f"Unexpected files in vendor/icons: {sorted(on_disk - set(icons))}")
+    print(f"Shell icons: {len(icons)} files in vendor/icons/lucide PASS")
+
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     doc = Document(html)
     for component in COMPONENTS:
@@ -119,7 +135,7 @@ def main() -> None:
     require(len(main_nodes) == 1 and main_nodes[0].get("id") == "main", "Expected main#main")
     ids = [attrs["id"] for _, attrs, _ in doc.elements if attrs.get("id")]
     require(all(count == 1 for count in Counter(ids).values()), "Duplicate source IDs found")
-    require(not set(ids).intersection({"about", "security", "accessibility", "updates",
+    require(not set(ids).intersection({"about", "security", "accessibility", "tech", "updates",
                                       "app-nav", "menu-toggle", "app-status-message"}),
             "Do not hand-author shell-owned IDs")
     sections = [(attrs, parents) for _, attrs, parents in doc.elements if "data-tab-section" in attrs]
@@ -138,6 +154,12 @@ def main() -> None:
     for key in ("data-about", "data-accessibility"):
         require(sum(tag == "template" and key in attrs and "marin-app-info" in parents
                     for tag, attrs, parents in doc.elements) == 1, f"Expected one {key} content template")
+    # The header icon is inline SVG (the shell inlines its own Lucide icons), and the
+    # favicon is a data: URI, so neither depends on a file path that can break.
+    require(any(tag == "svg" and "template" in parents and "marin-app-header" in parents
+                for tag, _, parents in doc.elements), "The header needs an inline <template data-icon> SVG")
+    require(any(attrs.get("rel") == "icon" and str(attrs.get("href", "")).startswith("data:image/svg+xml")
+                for attrs in doc.nodes("link")), "Keep the inline SVG favicon")
     require(bool(doc.nodes("noscript")), "Keep a JavaScript-disabled message")
 
     styles = [attrs.get("href") for attrs in doc.nodes("link") if attrs.get("rel") == "stylesheet"]
