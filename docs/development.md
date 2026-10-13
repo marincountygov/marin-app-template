@@ -143,11 +143,11 @@ The emitter uses Python's standard library, makes no network requests, and edits
 The supplied internal profile has been adjusted explicitly for the enabled shell features:
 
 ```text
-connect-src 'self' https://marincountygov.github.io/marin-os/catalog.json https://api.github.com
+connect-src 'self' https://marincountygov.github.io/marin-os/catalog.json https://marincountygov.github.io/marin-os/data/lighthouse.json https://marincountygov.github.io/marin-os/data/tech.json https://api.github.com
 img-src 'self' data:
 ```
 
-The catalog URL is path-scoped rather than allowing every resource on that external origin. The GitHub API origin supports the configurable repository used by Updates. Same-origin requests cover the app's `security.json`. `data:` is allowed for images only, supporting the current SVG favicon and Pico's embedded control icons. The external feeds are also recorded in `data.externalDataSources`. These are request destinations, not permission for external JavaScript.
+The three MarinOS URLs are path-scoped rather than allowing every resource on that external origin: the catalog feeds the banner menu, `lighthouse.json` feeds the Accessibility section's score, and `tech.json` feeds the Tech section. Without the last two, those sections show "couldn't load" on the deployed app. The GitHub API origin supports the configurable repository used by Updates. Same-origin requests cover the app's `security.json`. `data:` is allowed for images only, supporting the current SVG favicon and Pico's embedded control icons. The external feeds are also recorded in `data.externalDataSources`. These are request destinations, not permission for external JavaScript.
 
 `default-src`, `script-src`, `style-src`, and `font-src` remain `'self'`. The starter adds neither `'unsafe-inline'`, `'unsafe-eval'`, nor wildcard origins. Objects remain blocked, while base URLs and form targets remain same-origin. Narrow the allowed destinations when removing shell features; review and declare additional destinations when adding app features. Do not fix a blocked resource by broadly allowing all origins or inline scripts.
 
@@ -165,6 +165,8 @@ python3 tests/browser_security.py --in-memory
 ```
 
 The first deliberately removes CSP from its in-memory document to inject component-test scripts/styles; it is not a security test. The second keeps the exact shipped meta tags and tests real browser CSP decisions against intercepted fixture responses. Its opaque-origin document cannot verify same-origin assets or Referer header delivery. Neither fixture substitutes for `bash scripts/check.sh --browser` and a real browser review of the deployed app. No test requires live GitHub/catalog access.
+
+When an app is served from `localhost`, the shell reads the Accessibility score and Tech data from a local MarinOS server at `http://localhost:8935` instead of the deployed MarinOS. The app's CSP blocks that origin on purpose, so the console shows a blocked request and the sections say they couldn't load. This is expected during local development; the browser tests ignore it. Use the deployed app to check those sections.
 
 Reference behavior: [CSP meta delivery](https://www.w3.org/TR/CSP3/#meta-element) and [referrer-policy meta delivery](https://www.w3.org/TR/referrer-policy/#referrer-policy-delivery-meta).
 

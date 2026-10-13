@@ -4,6 +4,13 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.3
+
+- Allow the shell's Accessibility score and Tech data requests (`marin-os/data/lighthouse.json` and `marin-os/data/tech.json`) in the starter `security.json` and its generated CSP meta tag. Without them, those sections could not load on deployed apps.
+- Update the browser integration test to match Marin App Shell 1.10.0: the Tech footer link, the app title as the only home link, and the Security section's "Built for" text. The test had been failing since the shell moved on.
+- Document that the shell reads score and Tech data from `http://localhost:8935` when served locally, which the app's CSP blocks; the test ignores those messages.
+- Correct the README's description of the header home link.
+
 ## 2.0.2
 
 - Update `marin.yml`'s starter `project.status` from `prototype` to `alpha`, matching MarinOS's new app status enum (`alpha`/`beta`/`live`) — see `marin-os`'s `#status` page. `prototype` is no longer a recognized value.
