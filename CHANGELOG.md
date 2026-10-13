@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.6
+
+- Update the vendored Marin App Shell to 1.11.1 and pin `platform.shell: 1.11.1`. The Security and Accessibility sections now link `security.txt` and the WCAG 2.2 standard once each instead of twice.
+
 ## 2.0.5
 
 - Update the vendored Marin App Shell to 1.11.0 and pin `platform.shell: 1.11.0`. The shell now builds on Marin UI 1.24.0 and no longer carries its own copies of fixes Marin UI contains. The visible changes are the dark-mode Beta badge, which now uses the lighter blue text Marin UI intended, and the floating Feedback button, which hides while the footer is on screen so it cannot cover footer links.
