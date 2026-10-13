@@ -38,7 +38,7 @@ Use the complete structure in `index.html`, not the abbreviated example above. T
 
 ## Standard navigation
 
-The header contains **About** and **Updates**, with no default Start item. Clicking the header's app identity (icon, name, or description) follows `./` to reload the application's root and default workflow. This is normal navigation, not a state-preserving tab switch; unsaved in-memory work can be lost.
+The header contains **About** and **Updates**, with no default Start item. Clicking the header's app name follows `./` to reload the application's root and default workflow. This is normal navigation, not a state-preserving tab switch; unsaved in-memory work can be lost.
 
 The footer has the plain-text app name, **About**, **Security**, **Accessibility**, and **Updates**, followed by the MarinOS catalog link. The footer app name is not a link.
 
@@ -68,7 +68,7 @@ python3 scripts/sync-security-meta.py --write
 bash scripts/check.sh
 ```
 
-The checked-in tags work without a build step. The read-only checks reject missing, duplicate, misplaced, or stale policies. The default allows the shell's catalog/Updates requests and `data:` images for the existing favicon/Pico icons; scripts, styles, and fonts remain same-origin. Header-only hosting gaps remain documented rather than being represented by ineffective meta tags. Starter review dates, ownership, and advertised controls still need an actual app/deployment review. See [SECURITY.md](SECURITY.md) and the [security setup notes](docs/development.md#security-setup).
+The checked-in tags work without a build step. The read-only checks reject missing, duplicate, misplaced, or stale policies. The default allows the shell's catalog, Accessibility score, Tech, and Updates requests and `data:` images for the existing favicon/Pico icons; scripts, styles, and fonts remain same-origin. Header-only hosting gaps remain documented rather than being represented by ineffective meta tags. Starter review dates, ownership, and advertised controls still need an actual app/deployment review. See [SECURITY.md](SECURITY.md) and the [security setup notes](docs/development.md#security-setup).
 
 ## Related resources
 
