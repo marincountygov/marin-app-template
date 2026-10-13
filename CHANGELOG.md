@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.7
+
+- Update the vendored Marin App Shell to 1.12.0 and pin `platform.shell: 1.12.0`. The MarinOS banner at the top of the page now has the same background and text colors as the footer in light and dark mode, instead of solid black.
+
 ## 2.0.6
 
 - Update the vendored Marin App Shell to 1.11.1 and pin `platform.shell: 1.11.1`. The Security and Accessibility sections now link `security.txt` and the WCAG 2.2 standard once each instead of twice.
