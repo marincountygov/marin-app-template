@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.4
+
+- Update the vendored Marin App Shell to 1.10.1 and pin `platform.shell: 1.10.1`. Form control borders (text and date inputs, selects, checkboxes, radio buttons) now reach 3:1 contrast in light and dark mode.
+
 ## 2.0.3
 
 - Allow the shell's Accessibility score and Tech data requests (`marin-os/data/lighthouse.json` and `marin-os/data/tech.json`) in the starter `security.json` and its generated CSP meta tag. Without them, those sections could not load on deployed apps.
