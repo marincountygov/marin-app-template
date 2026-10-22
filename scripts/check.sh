@@ -25,7 +25,7 @@ bash -n "$ROOT_DIR/scripts/check.sh"
 python3 "$ROOT_DIR/scripts/sync-security-meta.py" --check
 python3 "$ROOT_DIR/tests/validate_template.py"
 python3 "$ROOT_DIR/tests/test_security_meta.py"
-python3 "$ROOT_DIR/scripts/audit-buttons.py" "$ROOT_DIR" --fail
+python3 "$ROOT_DIR/vendor/marinos/audit-buttons.py" "$ROOT_DIR" --fail
 
 if command -v node >/dev/null 2>&1; then
   node --check "$ROOT_DIR/vendor/marinos/marinos.js"
