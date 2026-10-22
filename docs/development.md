@@ -93,7 +93,7 @@ Run the local, dependency-light checks:
 bash scripts/check.sh
 ```
 
-Python 3 is required. These checks validate the generated security-meta block and run its offline regression tests, then check the manifest hashes and version pin, component structure, asset order, local assets, metadata syntax within the simple platform block, and removal of the legacy runtime. JavaScript syntax is checked when Node is available; the command explicitly reports when that check is skipped. These checks do not build or modify the vendored release.
+Python 3 is required. These checks validate the generated security-meta block and run its offline regression tests, then check the manifest hashes and version pin, component structure, asset order, local assets, metadata syntax within the simple platform block, and removal of the legacy runtime. JavaScript syntax is checked when Node is available; the command explicitly reports when that check is skipped. These checks do not build or modify the vendored release. They also run `scripts/audit-buttons.py`, which fails when a button does not follow the Marin button standard (see `marin-digital-standards/product-design/interaction-design.md`). Build a button as `.action-button` (add `data-icon="name"` for an icon, with `aria-label` and `title`), or `.primary` for the one main action of a screen. Mark content that is a button (a calendar event) with `data-button-kind="content"`.
 
 For browser integration checks, install Playwright for the Python interpreter being used, with Chromium available, then run:
 

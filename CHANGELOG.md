@@ -4,6 +4,12 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.10
+
+- Update the vendored Marin App Shell to 1.17.1 and pin `platform.shell: 1.17.1`. The shell now has one look for every kind of button and bundles Lucide icons that a button can draw with `data-icon="name"`. Why: a new app would otherwise start on a shell that lacks the current button styles.
+- Add `scripts/audit-buttons.py` and run it from `scripts/check.sh` (`--fail`). It lists any button that does not follow the Marin button standard (Pico's `secondary`, `outline` and `contrast` classes, `link-button`, bare buttons). A new app that adds an old-style button now fails its check. The script is a copy of the one in `marin-app-shell`; refresh it when the shell's changes.
+- Standard: `marin-digital-standards/product-design/interaction-design.md` ("Buttons"); how to build each kind: `marin-app-shell/docs/components.md`.
+
 ## 2.0.9
 
 - Update the vendored Marin App Shell to 1.12.2 and pin `platform.shell: 1.12.2`. Loading messages in the Security, Accessibility, Tech and Updates sections now say "Loading {app name}…". An app's own loading text should use the same wording; the shell exposes `window.MarinAppShell.loadingMessage()` for it.
