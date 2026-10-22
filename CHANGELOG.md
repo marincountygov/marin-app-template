@@ -4,10 +4,15 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.11
+
+- Update the vendored Marin App Shell to 1.18.0 and pin `platform.shell: 1.18.0`. Pressed and hovered quiet buttons now meet the 4.5:1 text contrast minimum in light mode.
+- `scripts/check.sh` now runs the button audit from `vendor/marinos/audit-buttons.py`, which ships with the shell, and the template's own copy (`scripts/audit-buttons.py`) is removed. Why: the copy had to be refreshed by hand whenever the shell's audit changed; the vendored one always matches the installed shell and updates when the shell is installed.
+
 ## 2.0.10
 
 - Update the vendored Marin App Shell to 1.17.1 and pin `platform.shell: 1.17.1`. The shell now has one look for every kind of button and bundles Lucide icons that a button can draw with `data-icon="name"`. Why: a new app would otherwise start on a shell that lacks the current button styles.
-- Add `scripts/audit-buttons.py` and run it from `scripts/check.sh` (`--fail`). It lists any button that does not follow the Marin button standard (Pico's `secondary`, `outline` and `contrast` classes, `link-button`, bare buttons). A new app that adds an old-style button now fails its check. The script is a copy of the one in `marin-app-shell`; refresh it when the shell's changes.
+- Add a button audit and run it from `scripts/check.sh` (`--fail`). It lists any button that does not follow the Marin button standard (Pico's `secondary`, `outline` and `contrast` classes, `link-button`, bare buttons). A new app that adds an old-style button now fails its check. The script is a copy of the one in `marin-app-shell`; refresh it when the shell's changes.
 - Standard: `marin-digital-standards/product-design/interaction-design.md` ("Buttons"); how to build each kind: `marin-app-shell/docs/components.md`.
 
 ## 2.0.9
