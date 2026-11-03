@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.12
+
+- Update the vendored Marin App Shell to 1.23.0 and pin `platform.shell: 1.23.0`. A solid button is now Marin Blue instead of Pico's stock blue, the arrow the shell draws on a solid button is sized for you, and the Feedback link is a named landmark. Why: a new app would otherwise start on the old blue and have to size the arrow itself.
+
 ## 2.0.11
 
 - Update the vendored Marin App Shell to 1.18.0 and pin `platform.shell: 1.18.0`. Pressed and hovered quiet buttons now meet the 4.5:1 text contrast minimum in light mode.
