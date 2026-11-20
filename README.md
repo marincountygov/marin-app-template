@@ -19,7 +19,7 @@
 
 ## Marin App Shell
 
-This starter vendors **Marin App Shell 1.12.2** under `vendor/marinos/`. It is the app's single shared runtime dependency. Its stylesheet includes the Pico baseline, shared design tokens, and shell styling; do not add a separate Pico or old shared-brand stylesheet.
+This starter vendors **Marin App Shell 2.0.0** under `vendor/marinos/`. It is the app's single shared runtime dependency. Its stylesheet includes the Pico baseline, shared design tokens, and shell styling; do not add a separate Pico or old shared-brand stylesheet.
 
 The initial HTML declares five light-DOM web components:
 

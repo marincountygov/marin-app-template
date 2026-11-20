@@ -28,6 +28,8 @@ python3 "$ROOT_DIR/tests/test_security_meta.py"
 python3 "$ROOT_DIR/vendor/marinos/audit-buttons.py" "$ROOT_DIR" --fail
 # Lists copy, download, file reading and upload code the app does itself instead of the shell's helpers; it must list nothing.
 python3 "$ROOT_DIR/vendor/marinos/audit-shared-helpers.py" "$ROOT_DIR" --fail
+# A filter column, if the app has one, must come from filters.json and the shell. With no filter column this lists nothing.
+python3 "$ROOT_DIR/vendor/marinos/audit-filter-column.py" "$ROOT_DIR" --fail
 
 if command -v node >/dev/null 2>&1; then
   node --check "$ROOT_DIR/vendor/marinos/marinos.js"

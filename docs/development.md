@@ -85,6 +85,19 @@ vendor/fonts/open-sans/OpenSans-VariableFont_wdth,wght.woff2
 
 Keep these assets and their existing license information. They are not copied into `vendor/marinos/` and are not overwritten by the shell installer. Shell and dependency notices are included under `vendor/marinos/licenses/`; see `THIRD_PARTY_NOTICES.md`.
 
+## Adding a filter column (only if the app needs one)
+
+The starter has no filter column, and most apps do not need one. Add it only when people search or filter a list of records. An app with no list to filter has no `filters.json`, no `.search-layout` and no sidebar, and does not add one to match other apps.
+
+When the app does need one, never write the column by hand: no sidebar markup, no toggle, no search box, no Reset button, no filter groups, no placeholder. The shell draws all of it from a file:
+
+1. Write `filters.json` next to the page. It follows `vendor/marinos/filter-panel.schema.json`: a search (optional), then groups of checkboxes, a radio choice, a drop-down or a date range. Each group has a plural name and, when nothing is chosen, an "All …" text. Choices come from the app's own data (`options.from`), or the app hands them over after it loads them (`options: {"app": true}` and `setOptions`).
+2. In the page, inside a `.search-layout`, put one empty `<div class="search-side" data-filter-column="filters.json" data-filter-name="things"></div>` beside a `.search-results` area.
+3. In the app's script, listen for `marin-filter-change` (`detail.state`), filter the records, then call `setResults(count)` on the column. The column keeps the choices in the address, announces the count, offers Reset when nothing matches, and handles the keyboard, focus and narrow screens.
+4. Run `bash scripts/check.sh`. It already runs `vendor/marinos/audit-filter-column.py --fail`, which lists a hand-written column and any `filters.json` that breaks the schema.
+
+The full reference is "Filter column" in Marin UI's `docs/components.md` and in the shell's `docs/components.md`. `marin-jobs` (a live feed) and `marin-software` are the simplest working examples; `marin-mentions` (nested groups), `marin-reach` (a date range) and `marin-learn` (a page drawn from a template) show the rest.
+
 ## Test changes
 
 Run the local, dependency-light checks:

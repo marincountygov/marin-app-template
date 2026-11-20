@@ -4,6 +4,12 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.13
+
+- Update the vendored Marin App Shell to 2.0.0 and pin `platform.shell: 2.0.0`. The shell now draws an app's filter column from a `filters.json`, so an app that needs one no longer writes the markup.
+- `scripts/check.sh` runs `vendor/marinos/audit-filter-column.py --fail`. The starter has no filter column, so it lists nothing; it is there so an app that adds a hand-written column fails its own check.
+- `docs/development.md` has an "Adding a filter column (only if the app needs one)" section. Why: most apps have no list to filter, so the starter stays without a filter column, and an app that does need one follows this section instead of copying another app's sidebar.
+
 ## 2.0.12
 
 - Update the vendored Marin App Shell to 1.23.0 and pin `platform.shell: 1.23.0`. A solid button is now Marin Blue instead of Pico's stock blue, the arrow the shell draws on a solid button is sized for you, and the Feedback link is a named landmark. Why: a new app would otherwise start on the old blue and have to size the arrow itself.
