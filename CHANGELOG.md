@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.14
+
+- `docs/development.md` "Adding a filter column": filters are multi-select (checkboxes) by default; a drop-down or radio choice is only for choices that exclude each other, such as a time range or a year.
+
 ## 2.0.13
 
 - Update the vendored Marin App Shell to 2.0.0 and pin `platform.shell: 2.0.0`. The shell now draws an app's filter column from a `filters.json`, so an app that needs one no longer writes the markup.
