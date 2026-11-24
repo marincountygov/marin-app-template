@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.16
+
+- `docs/development.md` "Adding documents in a set": a set that defines terms has one glossary page for the set, built from its `DefinedTerm` data, with a "Reference" group in the left navigation. Why: an app that adds a set of documents should build its glossary the same way, not write one by hand or share one list across sets.
+
 ## 2.0.15
 
 - `docs/development.md` has a new "Adding documents in a set, or search that reads text (only if the app needs them)" section. It points an app with guides, regulations or procedures at the standards for the left navigation, the previous and next links, the list page of cards, and search results that show a line of text with the matched words marked, and at `marin-docs` as the reference. Why: most apps have none of this, so the starter stays without it, and an app that does need it follows the standards instead of building its own navigation or copying another app's pages.
