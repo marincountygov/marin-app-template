@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.18
+
+- `docs/development.md` "Adding documents in a set": the buttons at the end of a section are the standard Copy link and Copy menu scoped to the section (Text, HTML, Markdown, Citation), not separate "Copy citation" and "Copy text" buttons. Every copy and download function is an item in a Copy or Download menu. Why: a separate button for each function breaks the one pattern people learn, and a menu item keeps it in one place.
+
 ## 2.0.17
 
 - `docs/development.md` "Adding documents in a set": a document people quote has Citation in its Copy menu and, at the end of each numbered section, its own Copy citation and Copy text buttons. Why: a copy function hidden only in a menu at the top is not found, so the buttons go where the reader finishes a section.
