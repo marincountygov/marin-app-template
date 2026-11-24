@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.15
+
+- `docs/development.md` has a new "Adding documents in a set, or search that reads text (only if the app needs them)" section. It points an app with guides, regulations or procedures at the standards for the left navigation, the previous and next links, the list page of cards, and search results that show a line of text with the matched words marked, and at `marin-docs` as the reference. Why: most apps have none of this, so the starter stays without it, and an app that does need it follows the standards instead of building its own navigation or copying another app's pages.
+
 ## 2.0.14
 
 - `docs/development.md` "Adding a filter column": filters are multi-select (checkboxes) by default; a drop-down or radio choice is only for choices that exclude each other, such as a time range or a year.

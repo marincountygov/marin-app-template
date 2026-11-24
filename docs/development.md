@@ -98,6 +98,19 @@ When the app does need one, never write the column by hand: no sidebar markup, n
 
 The full reference is "Filter column" in Marin UI's `docs/components.md` and in the shell's `docs/components.md`. `marin-jobs` (a live feed) and `marin-software` are the simplest working examples; `marin-mentions` (nested groups), `marin-reach` (a date range) and `marin-learn` (a page drawn from a template) show the rest.
 
+## Adding documents in a set, or search that reads text (only if the app needs them)
+
+The starter has neither, and most apps do not need them. Add them only when the app holds documents that belong together (the pages of a guide, the regulations of a manual, a collection of procedures), or when people search the text of documents. An app without these does not add them to match other apps.
+
+When the app does need them, do not design the navigation or the results. Follow the standards in Marin UI's `docs/components.md` and copy `marin-docs`, which is the reference:
+
+- **"Document set outline":** one left navigation for every document in a set (the set, its groups, its documents, the current one marked, a search box under the title) and a previous and next link at the foot of each document. Build both from the data the set already has, with one function, as plain HTML. Do not write the navigation by hand into a page. Reference: `marin-docs/scripts/doc-nav.js` and `doc-pager.js`.
+- **"Document set landing page":** the list page of the set is one card for each group, listing its documents as links, with a search box above that looks through the whole set. Only what the data holds; no written summaries. Reference: `marin-docs/pmrs/`.
+- **"Search results that show where the words are":** a search of document text shows a line of the text under each result with the matched words marked, and marks the same words on the page that opens. The text is in one file for each set, read only after a person starts to search. Reference: `marin-docs/home-search.js`, `doc-search.js` and `doc-highlight.js`.
+- A document left off the lists is left off the navigation, the cards and every search file.
+
+When the app adds these, also take the pages below the home page into the shell (header with About and Updates, footer, Feedback, no breadcrumb), as `marin-docs` and `marin-budget` do.
+
 ## Test changes
 
 Run the local, dependency-light checks:
