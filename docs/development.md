@@ -108,6 +108,7 @@ When the app does need them, do not design the navigation or the results. Follow
 - **"Document set landing page":** the list page of the set is one card for each group, listing its documents as links, with a search box above that looks through the whole set. Only what the data holds; no written summaries. Reference: `marin-docs/pmrs/`.
 - **"Search results that show where the words are":** a search of document text shows a line of the text under each result with the matched words marked, and marks the same words on the page that opens. The text is in one file for each set, read only after a person starts to search. Reference: `marin-docs/home-search.js`, `doc-search.js` and `doc-highlight.js`.
 - **"Document set glossary":** a set that defines terms has one glossary page for the set, built from its `DefinedTerm` data, A to Z, each term linked to the section that defines it, in a "Reference" group of the left navigation. Not one list shared across sets. Reference: `marin-docs/pmrs/glossary.html`.
+- **"Citing a document":** a document people quote has Citation in its Copy menu and, at the end of each numbered section, its own Copy citation and Copy text buttons, built by the generator and handled by one shared script. Reference: `marin-docs/guides/guide-actions.js`.
 - A document left off the lists is left off the navigation, the cards and every search file.
 
 When the app adds these, also take the pages below the home page into the shell (header with About and Updates, footer, Feedback, no breadcrumb), as `marin-docs` and `marin-budget` do.
