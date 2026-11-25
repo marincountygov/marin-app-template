@@ -125,7 +125,7 @@ When the app does need them, do not design the navigation or the results. Follow
 - **"Citing a document":** a document people quote has Citation in its Copy menu and, at the end of each numbered section, the same Copy link and Copy menu (Text, HTML, Markdown, Citation) scoped to that section. Every copy and download function is an item in the Copy or Download menu, never a separate button. Built by the generator and handled by one shared script. Reference: `marin-docs/guides/guide-actions.js`.
 - A document left off the lists is left off the navigation, the cards and every search file.
 
-When the app adds these, also take the pages below the home page into the shell (header with About and Updates, footer, Feedback, no breadcrumb), as `marin-docs` and `marin-budget` do.
+When the app adds these, also take the pages below the home page into the shell (header, footer, Feedback, no breadcrumb), as `marin-docs` and `marin-budget` do.
 
 ## Test changes
 
