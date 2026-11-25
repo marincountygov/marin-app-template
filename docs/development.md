@@ -112,6 +112,10 @@ When the app does need it, never write the step list, the "Step 2 of 6" line, th
 
 The full markup is "Steps layout" in Marin UI's `docs/components.md`. `marin-spec` is the working example.
 
+## Cards
+
+Every card is an `.app-card` (the one variant is `.app-card--secondary`). Never set a card's border, radius, background, shadow or padding in the app's CSS. A list of cards is `.search-results-list`; a record card is an `.app-card.mm-card` with the shared parts (`.mm-card__select`, `__image`, `__body`, `__title`, `__byline`, `__meta`, `__text`). The shell supplies all of them, at one set of sizes in every app, so do not copy their rules into `assets/app.css`. Text for reading is a plain bordered box, not a card. `scripts/check.sh` runs `vendor/marinos/audit-cards.py --fail` (App Shell 2.7.0 and later), which lists a copy of these rules or a redrawn card surface. See "Cards" in Marin UI's `docs/components.md`.
+
 ## Adding documents in a set, or search that reads text (only if the app needs them)
 
 The starter has neither, and most apps do not need them. Add them only when the app holds documents that belong together (the pages of a guide, the regulations of a manual, a collection of procedures), or when people search the text of documents. An app without these does not add them to match other apps.
