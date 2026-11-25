@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.19
+
+- `docs/development.md` has a new "Adding steps (only if the whole app is a sequence of steps)" section. It points an app whose whole workflow is a sequence at the shell's steps layout (App Shell 2.5.0 and later) and at `marin-spec`, and says not to write step, progress or "On this page" code. Why: most apps have no steps, so the starter stays without them, and an app that does need them should use the shell's one version, not copy Marin Spec's.
+
 ## 2.0.18
 
 - `docs/development.md` "Adding documents in a set": the buttons at the end of a section are the standard Copy link and Copy menu scoped to the section (Text, HTML, Markdown, Citation), not separate "Copy citation" and "Copy text" buttons. Every copy and download function is an item in a Copy or Download menu. Why: a separate button for each function breaks the one pattern people learn, and a menu item keeps it in one place.
