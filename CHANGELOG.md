@@ -6,7 +6,7 @@ Existing applications do not automatically inherit these changes. Template chang
 
 ## 2.0.19
 
-- `docs/development.md` has a new "Adding steps (only if the whole app is a sequence of steps)" section. It points an app whose whole workflow is a sequence at the shell's steps layout (App Shell 2.5.0 and later) and at `marin-spec`, and says not to write step, progress or "On this page" code. Why: most apps have no steps, so the starter stays without them, and an app that does need them should use the shell's one version, not copy Marin Spec's.
+- `docs/development.md` has a new "Adding steps (only if the whole app is a sequence of steps)" section. It points an app whose whole workflow is a sequence (the shell makes its Previous and Next buttons) at the shell's steps layout (App Shell 2.5.0 and later) and at `marin-spec`, and says not to write step, progress or "On this page" code. Why: most apps have no steps, so the starter stays without them, and an app that does need them should use the shell's one version, not copy Marin Spec's.
 
 ## 2.0.18
 
