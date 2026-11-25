@@ -98,6 +98,20 @@ When the app does need one, never write the column by hand: no sidebar markup, n
 
 The full reference is "Filter column" in Marin UI's `docs/components.md` and in the shell's `docs/components.md`. `marin-jobs` (a live feed) and `marin-software` are the simplest working examples; `marin-mentions` (nested groups), `marin-reach` (a date range) and `marin-learn` (a page drawn from a template) show the rest.
 
+## Adding steps (only if the whole app is a sequence of steps)
+
+The starter has no steps, and most apps do not need them. Use the steps layout when the app's whole workflow is a sequence the person follows from the first step to the last (a guided process, a wizard). It needs App Shell 2.5.0 or later; install a newer shell first if `platform.shell` is older. A short flow inside one feature does not use it.
+
+When the app does need it, never write the step list, the "Step 2 of 6" line, the "On this page" list or the step-switching script by hand. The shell does all of it from the markup:
+
+1. In `#start`, put a `.search-layout` with the shell's collapsible column: a `button.filter-toggle` with `data-filter-toggle="steps"`, `data-filter-label="Steps"`, `aria-controls="steps-panel"` and `hidden`, then an `aside#steps-panel.search-sidebar` with `data-filter-column-exempt="steps"` that holds a `nav.steps[data-steps]` with an `ol` of links numbered in words ("1. Prepare"), one per step.
+2. Beside it, a `.search-results` whose first child is `<div class="steps-progress" hidden></div>`, then `.steps-body` holding an empty `[data-steps-toc]` and `.steps-main`.
+3. In `.steps-main`, one `section.step` per link, in the same order, with the link's id, an `h2`, a one-line intro, and one `.step-box` (with an `h3`) for each part (what to do, a field, an action, what comes next). Write no Previous or Next: the shell ends every step with them. Next is the one solid button with the next step's name in lowercase and an arrow ("Next: analyze"), Previous is a quiet icon-only button named "Previous: prepare", the first step has no Previous and the last has no Next, and both are at least 44 px, work with the keyboard and show a focus ring, in high contrast too.
+4. Write no step code in `assets/app.js` or `assets/app.css`. The shell shows one step at a time, writes "Completed", "Current" or "Up next" under each step, marks the current one, fills the progress line and bar, builds "On this page" from the step's boxes, keeps the step in the address and moves focus to the step heading. Completed only means earlier than the current step; the app saves nothing.
+5. Add `python3 vendor/marinos/audit-steps.py . --fail` to `scripts/check.sh` (it lists a hand-written step list, Previous or Next buttons, or current-step code), then run `bash scripts/check.sh --browser`. The step list is exempt from `audit-filter-column.py` through `data-filter-column-exempt="steps"`. On a narrow screen the shell closes the open list when a step is chosen.
+
+The full markup is "Steps layout" in Marin UI's `docs/components.md`. `marin-spec` is the working example.
+
 ## Adding documents in a set, or search that reads text (only if the app needs them)
 
 The starter has neither, and most apps do not need them. Add them only when the app holds documents that belong together (the pages of a guide, the regulations of a manual, a collection of procedures), or when people search the text of documents. An app without these does not add them to match other apps.
