@@ -112,6 +112,15 @@ When the app does need it, never write the step list, the "Step 2 of 6" line, th
 
 The full markup is "Steps layout" in Marin UI's `docs/components.md`. `marin-spec` is the working example.
 
+## Home page (only if the app's home page is a list of things)
+
+The starter's `<main id="main" class="container app-main">` is already the page every app's home page uses (32px above, 16px at the sides, 72px below). An app whose home page lists what it holds (a directory of apps, the collections of Docs or Pulse) keeps it and adds, in this order:
+
+1. A `<search class="home-search" hidden>` first: the shell's `.search-input-field`, a `.mm-results-summary` with the status line, and a `.home-search__results` that groups results by kind in `.home-search__group`. It stays `hidden` until JavaScript runs.
+2. The cards in `<div class="directory-grid">`, each an `<article class="app-card directory-card">` (a status badge goes in `.directory-card__badges`).
+
+All of it comes from the shell (App Shell 2.10.0 and later), so write none of this CSS in `assets/app.css`, and do not use `docs-main` or `page` for the home page: those are for a document and sit 8px off from every other app's home page. The full markup is "Home page" in Marin UI's `docs/components.md`. `marin-pulse` is the working example.
+
 ## Cards
 
 Every card is an `.app-card` (the one variant is `.app-card--secondary`). Never set a card's border, radius, background or shadow in the app's CSS; a card whose colors change with a state sets `--app-card-bg`, `--app-card-border` and `--app-card-shadow` on itself (App Shell 2.8.0 and later), and a card that holds one main thing may set more padding on a class of its own. A list of cards is `.search-results-list`; a record card is an `.app-card.mm-card` with the shared parts (`.mm-card__select`, `__image`, `__body`, `__title`, `__byline`, `__meta`, `__text`). The shell supplies all of them, at one set of sizes in every app, so do not copy their rules into `assets/app.css`. Text for reading is a plain bordered box, not a card. `scripts/check.sh` runs `vendor/marinos/audit-cards.py --fail` (App Shell 2.7.0 and later), which lists a copy of these rules or a redrawn card surface. See "Cards" in Marin UI's `docs/components.md`.
