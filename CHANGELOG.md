@@ -4,6 +4,10 @@ Tracks changes to `marin-app-template` itself — repository structure, starter 
 
 Existing applications do not automatically inherit these changes. Template changes only affect projects created after the change; see `TEMPLATE_VERSION` and the README's "Project manifest and versions" section.
 
+## 2.0.20
+
+- `docs/development.md` has a new "Home page" section. It says an app whose home page lists things keeps the starter's `main.container.app-main`, puts `.home-search` first and the cards in `.directory-grid` of `.app-card.directory-card`, and writes none of that CSS (App Shell 2.10.0 and later). Why: Marin OS, Marin Docs and Marin Pulse each had their own copy and sat 8px apart, and the layout is now shared, so a new app should start from it.
+
 ## 2.0.19
 
 - `docs/development.md` has a new "Adding steps (only if the whole app is a sequence of steps)" section. It points an app whose whole workflow is a sequence (the shell makes its Previous and Next buttons) at the shell's steps layout (App Shell 2.5.0 and later) and at `marin-spec`, and says not to write step, progress or "On this page" code. Why: most apps have no steps, so the starter stays without them, and an app that does need them should use the shell's one version, not copy Marin Spec's.
